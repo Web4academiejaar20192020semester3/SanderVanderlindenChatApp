@@ -1,21 +1,20 @@
 package controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import domain.Person;
+import domain.PersonService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import domain.Person;
-import domain.PersonService;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LogIn extends RequestHandler {
 
 	@Override
 	public String handleRequest(HttpServletRequest request,
 			HttpServletResponse response) {
-		String destination = "index.jsp";
+		String destination = "chatpagina.jsp";
 		List<String> errors = new ArrayList<String>();
 		
 		String email = request.getParameter("email");
@@ -40,6 +39,7 @@ public class LogIn extends RequestHandler {
 		
 		if (errors.size() > 0) {
 			request.setAttribute("errors", errors);
+			destination = "index.jsp";
 		}
 		
 		return destination;	
@@ -48,6 +48,7 @@ public class LogIn extends RequestHandler {
 	private void createSession(Person person, HttpServletRequest request,
 			HttpServletResponse response) {
 		HttpSession session = request.getSession();
+		person.setStatus("online");
 		session.setAttribute("user", person);
 	}
 

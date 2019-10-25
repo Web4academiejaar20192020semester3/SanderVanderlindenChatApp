@@ -123,6 +123,10 @@ nav ul li {
 	font-size: 100%;
 }
 
+#actual{
+    background-color: #FFCC00;
+}
+
 nav ul li:first-child {
 	margin-right: 40px;
 }
@@ -132,13 +136,13 @@ nav ul li:last-child {
 
 nav ul li a {
 	text-decoration: none;
-	color: #000;
+    color: #000000
 }
 
-nav ul li a#actual {
-	border-bottom: 1px solid black;
+nav ul li a .actuala{
+    border-bottom: 1px solid black;
 }
 
-nav ul li#current {
+nav ul li #current {
 	border-bottom: 1px solid black;
 }

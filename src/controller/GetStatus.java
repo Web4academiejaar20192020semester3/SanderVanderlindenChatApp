@@ -1,19 +1,22 @@
 package controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import domain.Person;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
-public class GetStatus extends AsyncroRequestHandler {
+public class GetStatus extends AsyncronousRequestHandler {
 
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws IOException {
         HttpSession session = request.getSession();
-        Person p = (Person) session.getAttribute("user");
-        String statusJSON = this.toJSON("status",p.getStatus());
+        Person person = (Person) session.getAttribute("user");
+        String statusJSON = this.toJSON("status",person.getStatus());
+
         response.setContentType("application/json");
+        System.out.println(statusJSON);
         return statusJSON;
     }
 
@@ -26,4 +29,5 @@ public class GetStatus extends AsyncroRequestHandler {
         json.append("\" }");
         return json.toString();
     }
+
 }

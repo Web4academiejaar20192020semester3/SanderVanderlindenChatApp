@@ -12,9 +12,10 @@ public class UpdateStatus extends RequestHandler {
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         String status = request.getParameter("status");
         HttpSession session = request.getSession();
-        Person p = (Person) session.getAttribute("user");
-        p.setStatus(status);
-        session.setAttribute("user", p);
+        Person person = (Person) session.getAttribute("user");
+        person.setStatus(status);
+        session.setAttribute("user", person);
+        System.out.println("STATUS UPDATED TO: " + request.getParameter("status"));
         return "";
     }
 }

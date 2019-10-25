@@ -5,7 +5,6 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,6 +16,8 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private Role role;
+	private String status;
+
 
 	public Person(String userId, String password, String firstName,
 			String lastName,Role role) {
@@ -25,6 +26,7 @@ public class Person {
 		setFirstName(firstName);
 		setLastName(lastName);
 		setRole(role);
+		setStatus("offline");
 	}
 
 	public Person(String userId, String password, String salt,
@@ -149,4 +151,14 @@ public class Person {
 		this.lastName = lastName;
 	}
 
+	public void setStatus(String s){
+		if(s.trim().isEmpty()){
+			throw new DomainException("Status is invalid");
+		}
+		this.status = s;
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
 }

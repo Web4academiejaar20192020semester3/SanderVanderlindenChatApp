@@ -1,4 +1,4 @@
 package controller;
 
-public abstract class AsyncroRequestHandler  extends RequestHandler{
+public abstract class AsyncronousRequestHandler  extends RequestHandler{
 }
