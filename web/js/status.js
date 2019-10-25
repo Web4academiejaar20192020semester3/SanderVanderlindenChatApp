@@ -1,5 +1,6 @@
 var getStatusRequest = new XMLHttpRequest();
 var changeStatusRequest = new XMLHttpRequest();
+getStatus()
 
 var button = document.getElementById("statusButton");
 button.onclick = changeStatus;

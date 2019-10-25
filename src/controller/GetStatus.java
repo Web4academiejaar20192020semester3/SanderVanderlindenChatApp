@@ -16,7 +16,6 @@ public class GetStatus extends AsyncronousRequestHandler {
         String statusJSON = this.toJSON("status",person.getStatus());
 
         response.setContentType("application/json");
-        System.out.println(statusJSON);
         return statusJSON;
     }
 

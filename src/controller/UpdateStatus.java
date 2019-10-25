@@ -15,7 +15,6 @@ public class UpdateStatus extends RequestHandler {
         Person person = (Person) session.getAttribute("user");
         person.setStatus(status);
         session.setAttribute("user", person);
-        System.out.println("STATUS UPDATED TO: " + request.getParameter("status"));
         return "";
     }
 }

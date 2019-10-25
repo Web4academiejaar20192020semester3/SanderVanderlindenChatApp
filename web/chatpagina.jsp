@@ -21,6 +21,20 @@
                 <h3>Change Status</h3>
                 <input type="text" id="statusInput" placeholder="status..."/>
                 <input type="button" id="statusButton" value="Change"/>
+
+                <h3>Vrienden</h3>
+                <table>
+                    <tr>
+                        <th>Naam</th>
+                        <th>Status</th>
+                    </tr>
+                    <c:forEach var="vriend" items="${user.getFriends()}">
+                        <tr>
+                            <td>${vriend.firstName}</td>
+                            <td>${vriend.status}</td>
+                        </tr>
+                    </c:forEach>
+                </table>
             </c:when>
             <c:otherwise>
                 <p>Login required!</p>
