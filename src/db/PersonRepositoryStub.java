@@ -18,8 +18,17 @@ public class PersonRepositoryStub implements PersonRepository {
 		add(jan);
 		Person an = new Person("an@ucll.be", "t", "An", "Cornelissen", Role.LID);
 		add(an);
+		Person han = new Person("han@ucll.be", "t", "Han", "Aerts", Role.LID);
+		add(han);
 		jan.addFriend(administrator);
 		jan.addFriend(an);
+
+		jan.addBlogTopic("Was het een interessante projectweek?");
+		jan.addBlogTopic("Wat ben je van plan om te doen vandaag?");
+		jan.addBlogTopic("Naar welke muziek ben je momenteel aan het luisteren?");
+		jan.addBlogTopic("Wat zijn de examenvragen voor het vak Web4?");
+		jan.addBlogTopic("nummer 5");
+        System.out.println(jan.getBlogTopics());
 	}
 	
 	public Person get(String personId){

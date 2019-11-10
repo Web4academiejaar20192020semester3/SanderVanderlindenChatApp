@@ -6,16 +6,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LogOut extends RequestHandler {
+public class Blogpagina extends RequestHandler {
 
 	@Override
 	public String handleRequest(HttpServletRequest request,
 			HttpServletResponse response) {
+		String destination = "blogpagina.jsp";
+
 		HttpSession session = request.getSession();
-		Person user = (Person) session.getAttribute("user");
-		user.setStatus("offline");
-		session.invalidate();
-		return "index.jsp";
+		Person person = (Person)session.getAttribute("user");
+
+		return destination;
 	}
-	
+
 }

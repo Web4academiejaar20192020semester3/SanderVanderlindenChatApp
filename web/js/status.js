@@ -2,7 +2,7 @@ var getStatusRequest = new XMLHttpRequest();
 var changeStatusRequest = new XMLHttpRequest();
 getStatus()
 
-var button = document.getElementById("statusButton");
+var button = document.getElementById("changeStatusButton");
 button.onclick = changeStatus;
 
 function changeStatus() {

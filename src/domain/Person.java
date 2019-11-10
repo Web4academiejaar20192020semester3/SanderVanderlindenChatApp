@@ -18,7 +18,8 @@ public class Person {
 	private String lastName;
 	private Role role;
 	private String status;
-	private ArrayList<Person> friends;
+    private ArrayList<Person> friends;
+    private ArrayList<BlogTopic> blogTopics;
 
 
 	public Person(String userId, String password, String firstName,
@@ -30,6 +31,7 @@ public class Person {
 		setRole(role);
 		setStatus("offline");
         friends = new ArrayList<>();
+        blogTopics = new ArrayList<>();
 	}
 
 	public Person(String userId, String password, String salt,
@@ -166,10 +168,56 @@ public class Person {
 	}
 
     public void addFriend(Person friend) {
-	    this.friends.add(friend);
+	    if (friend == null){
+	        throw new DomainException("That person does not exist.");
+        }
+        if (friend.equals(this)){
+            throw new DomainException("You can't add yourself as a friend.");
+        }
+        if (!friends.contains(friend)){
+            this.friends.add(friend);
+            friend.addAcceptFriend(this);
+        }
     }
 
-    public ArrayList<Person> getFriends(){
+	public void addAcceptFriend(Person friend) {
+		this.friends.add(friend);
+	}
+
+
+	public ArrayList<Person> getFriends(){
 	    return this.friends;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        // If the object is compared with itself then return true
+        if (o == this) {
+            return true;
+        }
+
+        /* Check if o is an instance of Complex or not
+          "null instanceof [type]" also returns false */
+        if (!(o instanceof Person)) {
+            return false;
+        }
+
+        // typecast o to Complex so that we can compare data members
+        Person person = (Person) o;
+
+        // Compare the data members and return accordingly
+        return this.userId.equals(person.userId);
+    }
+
+    public void addBlogTopic(String blogTopic) {
+        if (blogTopic == null){
+            throw new DomainException("That String does not exist.");
+        }
+        this.blogTopics.add(new BlogTopic(blogTopic));
+    }
+
+    public ArrayList<BlogTopic> getBlogTopics(){
+        return this.blogTopics;
     }
 }

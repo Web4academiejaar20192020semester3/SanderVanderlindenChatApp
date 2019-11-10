@@ -16,7 +16,7 @@ public class Chatpagina extends RequestHandler {
 		HttpSession session = request.getSession();
 		Person person = (Person)session.getAttribute("user");
 
-		return destination;	
+		return destination;
 	}
 
 }

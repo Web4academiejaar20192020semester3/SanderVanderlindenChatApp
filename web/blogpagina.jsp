@@ -6,30 +6,19 @@
 <!DOCTYPE html>
 <html>
 <jsp:include page="head.jsp">
-	<jsp:param name="title" value="Chatpagina" />
+	<jsp:param name="title" value="Blogpagina" />
 </jsp:include>
 <body>
 	<jsp:include page="header.jsp">
-		<jsp:param name="title" value="Chatpagina" />
+		<jsp:param name="title" value="Blogpagina" />
 	</jsp:include>
 	<main>
         <c:choose>
             <c:when test="${user != null}">
                 <h3>Hi ${user.getFirstName()}!</h3>
 
-                <h3>Status</h3>
-                <div id="status"></div>
-
-                <h3>Friends</h3>
-                <div id="friends"></div>
-
-                <h3>Change Status</h3>
-                <input type="text" id="statusInput" placeholder="status..."/>
-                <input type="button" id="changeStatusButton" value="Change"/>
-
-                <h3>Add Friend</h3>
-                <input type="text" id="newFriendId" placeholder="friend id..."/>
-                <input type="button" id="addFriendButton" value="Add"/>
+                <h3>Topics</h3>
+                <div id="blogtopics"></div>
 
             </c:when>
             <c:otherwise>
@@ -50,12 +39,10 @@
             </c:otherwise>
         </c:choose>
 
-        <script type="text/javascript" src="js/status.js"></script>
-        <script type="text/javascript" src="js/friendList.js"></script>
-        <script type="text/javascript" src="js/addFriend.js"></script>
+        <script type="text/javascript" src="js/blogTopicList.js"></script>
     </main>
 	<jsp:include page="footer.jsp">
-		<jsp:param name="title" value="Chatpagina" />
+		<jsp:param name="title" value="Blogpagina" />
 	</jsp:include>
 </body>
 </html>

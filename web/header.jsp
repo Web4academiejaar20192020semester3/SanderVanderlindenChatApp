@@ -23,7 +23,17 @@
                         <li><a href="Controller?action=Chatpagina">Chatpagina</a></li>
                     </c:otherwise>
                 </c:choose>
+
+                <c:choose>
+                    <c:when test="${param.title=='Blogpagina'}">
+                        <li id="actual"><a class="actuala" href="Controller?action=BlogPagina">Blogpagina</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><a href="Controller?action=Blogpagina">BlogPagina</a></li>
+                    </c:otherwise>
+                </c:choose>
             </c:if>
+
         </ul>
     </nav>
     <h2>
