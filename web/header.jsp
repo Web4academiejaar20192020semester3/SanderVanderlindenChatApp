@@ -29,7 +29,7 @@
                         <li id="actual"><a class="actuala" href="Controller?action=BlogPagina">Blogpagina</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li><a href="Controller?action=Blogpagina">BlogPagina</a></li>
+                        <li><a href="Controller?action=Blogpagina">Blogpagina</a></li>
                     </c:otherwise>
                 </c:choose>
             </c:if>

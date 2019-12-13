@@ -25,10 +25,9 @@ public class PersonRepositoryStub implements PersonRepository {
 
 		jan.addBlogTopic("Was het een interessante projectweek?");
 		jan.addBlogTopic("Wat ben je van plan om te doen vandaag?");
-		jan.addBlogTopic("Naar welke muziek ben je momenteel aan het luisteren?");
-		jan.addBlogTopic("Wat zijn de examenvragen voor het vak Web4?");
-		jan.addBlogTopic("nummer 5");
-        System.out.println(jan.getBlogTopics());
+		an.addBlogTopic("Naar welke muziek ben je momenteel aan het luisteren?");
+		an.addBlogTopic("Wat zijn de examenvragen voor het vak Web4?");
+		han.addBlogTopic("nummer 5");
 	}
 	
 	public Person get(String personId){

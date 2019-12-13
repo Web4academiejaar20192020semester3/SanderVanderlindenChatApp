@@ -2,7 +2,6 @@ package controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import domain.BlogTopic;
-import domain.Person;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,8 +13,18 @@ public class GetBlogTopics extends AsyncronousRequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
         HttpSession session = request.getSession();
-        Person person = (Person) session.getAttribute("user");
+        /*Person person = (Person) session.getAttribute("user");
         ArrayList<BlogTopic> blogTopics = person.getBlogTopics();
+        //for friend in friends for blogtopic in blogtopics add
+        for (Person friend : person.getFriends()){
+            for (BlogTopic blogtopic : friend.getBlogTopics()){
+                if (!blogTopics.contains(blogtopic)){
+                    blogTopics.add(blogtopic);
+                }
+            }
+        }*/
+        ArrayList<BlogTopic> blogTopics = getPersonService().getBlogTopics();
+
         String blogTopicsJSON = this.toJSON("blogTopics", blogTopics);
         response.setContentType("application/json");
         return blogTopicsJSON;
@@ -28,7 +37,7 @@ public class GetBlogTopics extends AsyncronousRequestHandler {
         if(blogTopics.size() > 0){
             json.append("\" : [");
             for(BlogTopic blogTopic : blogTopics){
-                json.append("{\"topic\":\""+ blogTopic.getText() + "\"},");
+                json.append("{\"author\":\"" + blogTopic.getAuthor().getFirstName() + "\",\"topic\":\""+ blogTopic.getText() + "\"},");
             }
             json.deleteCharAt(json.length()-1);
 

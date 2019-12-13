@@ -8,16 +8,16 @@
 <jsp:include page="head.jsp">
 	<jsp:param name="title" value="Blogpagina" />
 </jsp:include>
-<body>
+<body onload="openSocket();">
 	<jsp:include page="header.jsp">
 		<jsp:param name="title" value="Blogpagina" />
 	</jsp:include>
 	<main>
         <c:choose>
             <c:when test="${user != null}">
-                <h3>Hi ${user.getFirstName()}!</h3>
+                <h3 id="loggedInUser">Hi ${user.getFirstName()}!</h3>
 
-                <h3>Topics</h3>
+                <h3>Blogs</h3>
                 <div id="blogtopics"></div>
 
             </c:when>
@@ -38,7 +38,6 @@
                 </form>
             </c:otherwise>
         </c:choose>
-
         <script type="text/javascript" src="js/blogTopicList.js"></script>
     </main>
 	<jsp:include page="footer.jsp">

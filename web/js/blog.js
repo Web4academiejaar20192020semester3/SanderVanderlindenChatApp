@@ -1,32 +1,56 @@
-var webSocket;
-var messages;
+//WORDT NIET GEBRUIKT!
+/*var webSocket;
+var comments;
+
+/*var testbutton = document.getElementById('submitButtonId1');
+testbutton.addEventListener('click', function(){
+    postComment(1);
+});* /
 
 function openSocket(){
     webSocket = new WebSocket("ws://localhost:8080/echo");
 
+    /*webSocket.onopen = function(event){
+        writeResponse("Connection opened")
+    };*  /
+
     webSocket.onmessage = function(event){
         writeResponse(event.data);
     };
+
+    /*webSocket.onclose = function(event){
+        writeResponse("Connection closed");
+    };* /
 }
 
-function send(id){
-    messages = document.getElementById("messages" + id);
-    var name = document.getElementById("messageinputName" + id).value;
-    var comment = document.getElementById("messageinputComment" +id).value;
-    var rating = document.getElementById("messageinputRating" + id).value;
-    var text = id + name + ": " + comment + ", " + rating;
-    webSocket.send(text);
+function send(topicNumber){
+    //comments = document.getElementById("blogTopic" + topicNumber);
+    var name = document.getElementById("loggedInUser").value;
+    var comment = document.getElementById("commentInputId" + topicNumber).value;
+    var rating = document.getElementById("ratingInputId" + topicNumber).value;
+    var text = topicNumber + name + ": " + comment + ", " + rating;
+    //webSocket.send(text);
 }
 
 function closeSocket(){
     webSocket.close();
 }
 
-function writeResponse(text){
-    var id = text[0];
-    text = text.substring(1);
-    var totalId = "messages" + id;
-    messages = document.getElementById(totalId);
-    $('#' + totalId).show();
-    messages.innerHTML += text + "<br/>";
+function  testtest() {
+    document.getElementById('loggedInUser').value = "testerdetest";
 }
+
+function writeResponse(text){
+    var topicNumber = text[0];
+    text = text.substring(1);
+    comments = document.getElementById("commentTd" + topicNumber);
+    //$('#commentTr' + topicNumber).show();
+    comments.innerHTML += text + "<br/>";
+}
+
+function postComment (/*topicNumber* /) {
+    openSocket();
+    send(1);
+    closeSocket();
+}
+*/

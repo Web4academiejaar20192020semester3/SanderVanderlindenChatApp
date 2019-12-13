@@ -214,7 +214,7 @@ public class Person {
         if (blogTopic == null){
             throw new DomainException("That String does not exist.");
         }
-        this.blogTopics.add(new BlogTopic(blogTopic));
+        this.blogTopics.add(new BlogTopic(this, blogTopic));
     }
 
     public ArrayList<BlogTopic> getBlogTopics(){

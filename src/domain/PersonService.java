@@ -1,9 +1,10 @@
 package domain;
 
-import java.util.List;
-
 import db.PersonRepository;
 import db.PersonRepositoryStub;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PersonService {
 	private PersonRepository personRepository = new PersonRepositoryStub();
@@ -18,6 +19,20 @@ public class PersonService {
 	public List<Person> getPersons() {
 		return getPersonRepository().getAll();
 	}
+
+	public ArrayList<BlogTopic> getBlogTopics(){
+		ArrayList<BlogTopic> blogTopics = new ArrayList<>();
+		for (Person person: getPersons()){
+			for (BlogTopic blogtopic : person.getBlogTopics()){
+				if (!blogTopics.contains(blogtopic)){
+					blogTopics.add(blogtopic);
+				}
+			}
+		}
+
+		return blogTopics;
+	}
+
 
 	public void addPerson(Person person) {
 		getPersonRepository().add(person);
