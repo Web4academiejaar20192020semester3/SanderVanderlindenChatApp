@@ -124,6 +124,7 @@ nav ul li {
 }
 
 #actual{
+    padding: 3px;
     background-color: #FFCC00;
 }
 
@@ -145,4 +146,13 @@ nav ul li a .actuala{
 
 nav ul li #current {
 	border-bottom: 1px solid black;
+}
+
+.left { grid-area: left; }
+.right { grid-area: right; }
+
+.grid-container {
+	display: grid;
+	grid-template-areas:
+			'left right';
 }

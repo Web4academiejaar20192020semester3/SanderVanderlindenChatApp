@@ -17,7 +17,7 @@ public class ChatServer {
 
     @OnOpen
     public void onOpen(Session session){
-        System.out.println(session.getId() + " has opened a connection");
+        //System.out.println(session.getId() + " has opened a connection");
         sendMessageToAll("User " + session.getId() + " has connected");
         try {
             session.getBasicRemote().sendText("Connection Established");
@@ -29,13 +29,13 @@ public class ChatServer {
 
     @OnMessage
     public void onMessage(String message, Session session){
-        System.out.println("Message from " + session.getId() + ": " + message);
+        //System.out.println("Message from " + session.getId() + ": " + message);
         sendMessageToAll(message);
     }
 
     @OnClose
     public void onClose(Session session){
-        System.out.println("Chat " +session.getId()+" has ended");
+        //System.out.println("Chat " +session.getId()+" has ended");
         sessions.remove(session);
     }
 
