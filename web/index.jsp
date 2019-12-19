@@ -44,7 +44,9 @@
 				<input type="submit" id="loginbutton" value="Log in">
 			</p>
 		</form>
-	</c:otherwise>
+
+        <button onclick="window.location.href = 'Controller?action=Register';">Create account</button>
+    </c:otherwise>
 </c:choose> </main>
 
 	<jsp:include page="footer.jsp">

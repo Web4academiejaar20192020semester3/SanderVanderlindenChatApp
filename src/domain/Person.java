@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class Person {
 
-	private String userId;
+    private String userId;
 	private String password;
 	private String salt;
 	private String firstName;
@@ -20,28 +20,27 @@ public class Person {
 	private String status;
     private ArrayList<Person> friends;
     private ArrayList<BlogTopic> blogTopics;
+    private String gender;
+    private int age;
 
 
-	public Person(String userId, String password, String firstName,
+    public Person(String userId, String password, String firstName,
 			String lastName,Role role) {
 		setUserId(userId);
 		setHashedPassword(password);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setRole(role);
-		setStatus("offline");
-        friends = new ArrayList<>();
+		setStatusOffline();
+        createEmptyFriendlist();
         blogTopics = new ArrayList<>();
 	}
 
-	public Person(String userId, String password, String salt,
+
+    public Person(String userId, String password, String salt,
 			String firstName, String lastName,Role role) {
-		setUserId(userId);
-		setPassword(password);
+        this(userId, password, firstName, lastName, role);
 		setSalt(salt);
-		setFirstName(firstName);
-		setLastName(lastName);
-		setRole(role);
 	}
 
 	public Person() {
@@ -225,4 +224,27 @@ public class Person {
 	public String toString() {
 		return (firstName + " " + lastName + " " + userId + " " + role);
 	}
+
+    public void setGender(String gender) {
+        if (gender.isEmpty()) {
+            throw new IllegalArgumentException("No gender given");
+        }
+        this.gender = gender;
+    }
+
+    public void setAge(int age) {
+        if (age < 0 || age > 125) {
+            throw new IllegalArgumentException("Age must be an integer between 0 and 125");
+        }
+        this.age = age;
+    }
+
+    public void createEmptyFriendlist() {
+        friends = new ArrayList<>();
+    }
+
+
+    public void setStatusOffline(){
+        setStatus("offline");
+    }
 }
