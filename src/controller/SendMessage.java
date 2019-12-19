@@ -7,18 +7,20 @@ import domain.Person;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class SendMessage extends AsyncroRequestHandler{
+public class SendMessage extends RequestHandler{
+
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
-        String senderId = request.getParameter("sender");
-        String receiverId = request.getParameter("receiver");
-        String message = request.getParameter("message");
+        String senderId = request.getParameter("senderId");
+        String receiverId = request.getParameter("receiverId");
+        String messageString = request.getParameter("message");
 
-        Person sender = this.getPersonService().getPerson(senderId);
-        Person receiver = this.getPersonService().getPerson(receiverId);
-
-        Message m = new Message(message, sender);
-        this.getPersonService().addMessageToConversation(m, sender, receiver);
+        if (!(senderId.trim().isEmpty() || receiverId.trim().isEmpty() || messageString.trim().isEmpty())){
+            Person sender = this.getPersonService().getPerson(senderId);
+            Person receiver = this.getPersonService().getPerson(receiverId);
+            Message message = new Message(messageString, sender, receiver);
+            this.getPersonService().addMessageToConversation(message);
+        }
 
         return "";
     }

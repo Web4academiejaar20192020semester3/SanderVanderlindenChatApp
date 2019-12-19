@@ -1,5 +1,7 @@
 package domain;
 
+import db.ConversationRepository;
+import db.ConversationRepositoryStub;
 import db.PersonRepository;
 import db.PersonRepositoryStub;
 
@@ -7,13 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonService {
-	private PersonRepository personRepository = new PersonRepositoryStub();
+    private PersonRepository personRepository = new PersonRepositoryStub();
+    private ConversationRepository conversationRepository = new ConversationRepositoryStub();
 
 	public PersonService(){
 	}
 	
 	public Person getPerson(String personId)  {
-		return getPersonRepository().get(personId);
+        if(personId == null){
+            throw new IllegalArgumentException("No id given");
+        }		return getPersonRepository().get(personId);
 	}
 
 	public List<Person> getPersons() {
@@ -53,4 +58,12 @@ public class PersonService {
 	private PersonRepository getPersonRepository() {
 		return personRepository;
 	}
+
+	public void addMessageToConversation(Message message) {
+        conversationRepository.addMessage(message);
+	}
+
+    public Conversation getConversation(Person person1, Person person2) {
+	    return conversationRepository.getConversation(person1, person2);
+    }
 }

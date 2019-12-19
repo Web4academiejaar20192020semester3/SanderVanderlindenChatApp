@@ -44,28 +44,25 @@ function getFriendsData () {
 
             for (var i = 0; i < friends.length; i++) {
                 var tableRow = document.createElement('tr');
-                //tableRow.setAttribute("id", friends[i].id);
                 tableRow.setAttribute("id", friends[i].name);
                 tableRow.setAttribute("class", "friendName");
-                /*tableRow.addEventListener("click", function(){
-                    startConversation(friends[i].name)
-                });*/
-                /*$(id).click(function(){
-                    startConversation(id)
-                });*/
 
                 var name = document.createElement('td');
                 var nameText = document.createTextNode(friends[i].name);
                 name.appendChild(nameText);
-                /*name.addEventListener("click", function(){
-                    startConversation(friends[i].name)
-                });*/
+
                 tableRow.appendChild(name);
 
                 var status = document.createElement('td');
                 var statusText = document.createTextNode(friends[i].status);
                 status.appendChild(statusText);
                 tableRow.appendChild(status);
+
+                var id = document.createElement('td');
+                var idText = document.createTextNode(friends[i].id);
+                id.appendChild(idText);
+                id.style.display = 'none';
+                tableRow.appendChild(id);
 
                 table.appendChild(tableRow);
 
@@ -74,25 +71,3 @@ function getFriendsData () {
         }
     }
 }
-
-/*
-$('.friendName td:first-child').live('click', 'friendName', function() {
-    startConversation($(this).text());
-    //alert( $(this).text());
-});
-
-//function startConversation(){
-function startConversation(name){
-    $('#' + name).css("background-color", "#FFCC00");
-    /*$('#chat').show();
-    $('#chatWindowNameSmall').hide();
-    $('#chatWindow').show();
-    var receiverId = this.id;
-    var receiver = document.getElementById("receiver");
-    var tr = document.getElementById(receiverId);
-    var receiverName = tr.childNodes[0].textContent;
-    receiver.setAttribute("value", receiverId.toString());
-    document.getElementById("chatWindowName").innerText = receiverName;
-    document.getElementById("chatWindowNameSmall").innerText = receiverName;*//*
-}
-*/

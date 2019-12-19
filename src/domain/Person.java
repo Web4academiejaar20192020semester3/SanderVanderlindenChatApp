@@ -220,4 +220,9 @@ public class Person {
     public ArrayList<BlogTopic> getBlogTopics(){
         return this.blogTopics;
     }
+
+	@Override
+	public String toString() {
+		return (firstName + " " + lastName + " " + userId + " " + role);
+	}
 }

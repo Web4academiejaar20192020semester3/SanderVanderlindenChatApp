@@ -16,20 +16,20 @@
 
             <c:if test="${user != null}">
                 <c:choose>
-                    <c:when test="${param.title=='Chatpagina'}">
-                        <li id="actual"><a class="actuala" href="Controller?action=Chatpagina">Chatpagina</a></li>
+                    <c:when test="${param.title=='Chat'}">
+                        <li id="actual"><a class="actuala" href="Controller?action=Chatpagina">Chat</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li><a href="Controller?action=Chatpagina">Chatpagina</a></li>
+                        <li><a href="Controller?action=Chatpagina">Chat</a></li>
                     </c:otherwise>
                 </c:choose>
 
                 <c:choose>
-                    <c:when test="${param.title=='Blogpagina'}">
-                        <li id="actual"><a class="actuala" href="Controller?action=BlogPagina">Blogpagina</a></li>
+                    <c:when test="${param.title=='Blog'}">
+                        <li id="actual"><a class="actuala" href="Controller?action=BlogPagina">Blog</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li><a href="Controller?action=Blogpagina">Blogpagina</a></li>
+                        <li><a href="Controller?action=Blogpagina">Blog</a></li>
                     </c:otherwise>
                 </c:choose>
             </c:if>

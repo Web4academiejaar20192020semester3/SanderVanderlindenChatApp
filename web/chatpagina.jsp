@@ -6,11 +6,11 @@
 <!DOCTYPE html>
 <html>
 <jsp:include page="head.jsp">
-    <jsp:param name="title" value="Chatpagina" />
+    <jsp:param name="title" value="Chat" />
 </jsp:include>
 <body>
 <jsp:include page="header.jsp">
-    <jsp:param name="title" value="Chatpagina" />
+    <jsp:param name="title" value="Chat" />
 </jsp:include>
 <main>
     <c:choose>
@@ -39,10 +39,12 @@
                 <div class="right" style="background-color:#FFCC00;">
                     <button id="toggleChatButton">Hide chat</button>
                     <div id="chatWindow">
-                        <div id="chatWindowName">div chatWindowName</div>
-                        <div class="chatWindowContent" id="chatWindowContent">div chatWindowContent</div>
-                        <input type="text" class="chatWindowInput" id="chatWindowInput" placeholder="type message...">
-                        <button class="chatWindowSendButton" id="chatWindowSendButton">send</button>
+                        <div id="chatWindowName">Klik op een naam!</div>
+                        <div id="chatWindowContent">div chatWindowContent</div>
+                        <div id="chatWindowSendDiv">
+                            <input type="text" id="chatWindowInput" placeholder="type message...">
+                            <button id="chatWindowSendButton">send</button>
+                        </div>
                         <input type="hidden" id="receiver" name="receiver"/>
                         <input type="hidden" id="sender" name="sender" value="${user.userId}"/>
                     </div>

@@ -8,14 +8,11 @@ import java.util.List;
 
 public interface ConversationRepository {
 
-    public abstract void add(Conversation conversation);
+    void add(Conversation conversation);
 
-    public abstract Conversation get(Person p0, Person p1);
+    Conversation getConversation(Person person1, Person person2);
 
-    public abstract List<Conversation> getAll();
+    List<Conversation> getAll();
 
-    public abstract void addMessage(Message m, Person p0, Person p1);
-
-    public abstract void updateConversation(Conversation c);
-
+    void addMessage(Message message);
 }

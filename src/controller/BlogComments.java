@@ -11,13 +11,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @ServerEndpoint("/echo")
-public class ChatServer {
+public class BlogComments {
 
     private static final Set<Session> sessions = Collections.synchronizedSet(new HashSet<Session>());
 
     @OnOpen
     public void onOpen(Session session){
-        //System.out.println(session.getId() + " has opened a connection");
         sendMessageToAll("User " + session.getId() + " has connected");
         try {
             session.getBasicRemote().sendText("Connection Established");
@@ -29,13 +28,11 @@ public class ChatServer {
 
     @OnMessage
     public void onMessage(String message, Session session){
-        //System.out.println("Message from " + session.getId() + ": " + message);
         sendMessageToAll(message);
     }
 
     @OnClose
     public void onClose(Session session){
-        //System.out.println("Chat " +session.getId()+" has ended");
         sessions.remove(session);
     }
 

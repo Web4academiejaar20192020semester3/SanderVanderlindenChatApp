@@ -6,11 +6,11 @@
 <!DOCTYPE html>
 <html>
 <jsp:include page="head.jsp">
-	<jsp:param name="title" value="Blogpagina" />
+	<jsp:param name="title" value="Blog" />
 </jsp:include>
 <body onload="openSocket();">
 	<jsp:include page="header.jsp">
-		<jsp:param name="title" value="Blogpagina" />
+		<jsp:param name="title" value="Blog" />
 	</jsp:include>
 	<main>
         <c:choose>
