@@ -40,7 +40,7 @@
                     <button id="toggleChatButton">Hide chat</button>
                     <div id="chatWindow">
                         <div id="chatWindowName">Klik op een naam!</div>
-                        <div id="chatWindowContent">div chatWindowContent</div>
+                        <div id="chatWindowContent"></div>
                         <div id="chatWindowSendDiv">
                             <input type="text" id="chatWindowInput" placeholder="type message...">
                             <button id="chatWindowSendButton">send</button>

@@ -12,13 +12,13 @@ public class PersonRepositoryStub implements PersonRepository {
 	private Map<String, Person> persons = new HashMap<String, Person>();
 	
 	public PersonRepositoryStub () {
-		Person administrator = new Person("bib@ucll.be", "t", "Bib", "Liothekaris", Role.BIB);
+		Person administrator = new Person("bib@ucll.be", "t", "Bib", "Liothekaris", 54, "Other", Role.BIB);
 		add(administrator);
-		Person jan = new Person("jan@ucll.be", "t", "Jan", "Janssens", Role.LID);
+		Person jan = new Person("jan@ucll.be", "t", "Jan", "Janssens", 42, "Male", Role.LID);
 		add(jan);
-		Person an = new Person("an@ucll.be", "t", "An", "Cornelissen", Role.LID);
+		Person an = new Person("an@ucll.be", "t", "An", "Cornelissen", 33, "Female", Role.LID);
 		add(an);
-		Person han = new Person("han@ucll.be", "t", "Han", "Aerts", Role.LID);
+		Person han = new Person("han@ucll.be", "t", "Han", "Aerts", 21, "Male", Role.LID);
 		add(han);
 		jan.addFriend(administrator);
 		jan.addFriend(an);

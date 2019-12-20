@@ -47,7 +47,13 @@ public class Person {
 	public Person() {
 	}
 
-	public Role getRole() {
+    public Person(String userId, String password, String firstName, String lastName, int age, String gender,Role role) {
+        this(userId, password, firstName, lastName, role);
+        setAge(age);
+        setGender(gender);
+    }
+
+    public Role getRole() {
 		return this.role;
 	}
 

@@ -126,7 +126,10 @@ nav ul li {
 #actual{
     padding: 3px;
     background-color: #FFCC00;
+    border: #000000;
+    border-style:solid;
 }
+
 
 nav ul li:first-child {
     margin-right: 40px;
