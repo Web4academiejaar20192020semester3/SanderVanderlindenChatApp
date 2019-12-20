@@ -22,7 +22,8 @@ public class RegisterConfirm extends RequestHandler {
         setAge(person, request, errors);
         person.setRole(Role.LID);
         person.setStatusOffline();
-        person.createEmptyFriendlist();;
+        person.createEmptyFriendlist();
+        person.createEmptyBlogTopiclist();
 
 
         if (errors.size() < 1){

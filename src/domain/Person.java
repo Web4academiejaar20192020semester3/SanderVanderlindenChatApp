@@ -33,8 +33,9 @@ public class Person {
 		setRole(role);
 		setStatusOffline();
         createEmptyFriendlist();
-        blogTopics = new ArrayList<>();
+        createEmptyBlogTopiclist();
 	}
+
 
 
     public Person(String userId, String password, String salt,
@@ -53,7 +54,7 @@ public class Person {
 	public void setRole(Role role) {
 		this.role=role;
 	}
-	
+
 
 	public void setUserId(String userId) {
 		if (userId.isEmpty()) {
@@ -243,8 +244,19 @@ public class Person {
         friends = new ArrayList<>();
     }
 
+    public void createEmptyBlogTopiclist() {
+        blogTopics = new ArrayList<>();
+    }
 
     public void setStatusOffline(){
         setStatus("offline");
+    }
+
+    public String getGender() {
+        return this.gender;
+    }
+
+    public int getAge() {
+        return this.age;
     }
 }
