@@ -30,6 +30,7 @@ $(document).ready(function(){
         setTimeout(function () {
             $('#' + name).css("background-color", "#F0F0F0");
         }, 250);
+        addChatLog();
     }
 
     $("#chatWindowSendButton").click(function send(){
@@ -82,5 +83,22 @@ $(document).ready(function(){
             setTimeout(getMessages, 2000);
         })
     }
+
+    function addChatLog(){
+        $.ajax({
+            type: "POST",
+            url: "Controller?action=AddChatLog",
+            data: {
+                "senderId": $('#sender').val(),
+                "receiverId":  $('#receiver').val(),
+            },
+            dataType: "json",
+            success: function() {
+            },
+            error: function(){
+            }
+        });
+    }
+
 
 });

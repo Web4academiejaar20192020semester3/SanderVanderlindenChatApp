@@ -39,6 +39,7 @@ public class Conversation {
             throw new DomainException("message is null");
         }
         this.messages.add(m);
+        //sla log op in arraylist
     }
 
     public ArrayList<Message> getMessages(){

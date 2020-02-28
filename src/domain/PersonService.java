@@ -10,7 +10,8 @@ import java.util.List;
 
 public class PersonService {
     private PersonRepository personRepository = new PersonRepositoryStub();
-    private ConversationRepository conversationRepository = new ConversationRepositoryStub();
+	private ConversationRepository conversationRepository = new ConversationRepositoryStub();
+	private ArrayList<String> logs = new ArrayList<>();
 
 	public PersonService(){
 	}
@@ -65,5 +66,16 @@ public class PersonService {
 
     public Conversation getConversation(Person person1, Person person2) {
 	    return conversationRepository.getConversation(person1, person2);
+    }
+
+    public void addChatLog(String s) {
+		logs.add(s);
+		/*for (String log: logs){
+            System.out.println(log);
+        }*/
+    }
+
+    public ArrayList<String> getHistory() {
+        return this.logs;
     }
 }

@@ -34,6 +34,15 @@
                 </c:choose>
             </c:if>
 
+            <c:choose>
+                <c:when test="${param.title=='History'}">
+                    <li id="actual"><a class="actuala" href="Controller?action=HistoryPagina">History</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="Controller?action=HistoryPagina">History</a></li>
+                </c:otherwise>
+            </c:choose>
+
         </ul>
     </nav>
     <h2>
